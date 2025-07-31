@@ -6,5 +6,11 @@ clean:
 build:
 	@go build -o ./bin/minit main.go
 
-test: build
+test-unit:
 	@go test ./...
+
+test-integration: build
+	@./bin/minit -h
+
+test: test-unit test-integration
+
